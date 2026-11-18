@@ -24,8 +24,7 @@ def mini(message):
     button = types.InlineKeyboardMarkup()
     coin = types.InlineKeyboardButton('Монеточка', callback_data='coin')
     dice = types.InlineKeyboardButton('Кидання кубика', callback_data='dice')
-    duel = types.InlineKeyboardButton('дуель на кубика', callback_data='duel')
-    button.add(coin, dice, duel)
+    button.add(coin, dice)
     bot.send_message(message.chat.id, 'Вебери гру:', reply_markup=button)
 
 
