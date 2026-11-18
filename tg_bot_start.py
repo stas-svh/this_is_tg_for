@@ -14,7 +14,8 @@ quotes = [
     'Цытата: Если море было водкой я бы стал подводной лодкой',
     'Цытата: Одна ошибка и ты ошибся',
     'Цытата: Зима не лето - арбуз не котлета',
-    'Цытата: Слово не птичка - скибиди яичко'
+    'Цытата: Слово не птичка - скибиди яичко',
+    'Цытата: Жизнь одна, стендоф два, оливер три'
 ]
 
 
@@ -56,7 +57,12 @@ def get_photo(message):
 
 @bot.message_handler(commands=['youtube', 'watch'])
 def site(message):
-    webbrowser.open('https://www.youtube.com/')
+    markup = types.InlineKeyboardMarkup()
+    youbtn1 = types.InlineKeyboardButton('перейти на ютуб', url='https://youtube.com/')
+    tiktok1 = types.InlineKeyboardButton('перейти на тикток', url='https://www.tiktok.com/')
+    markup.row(youbtn1, tiktok1)
+    bot.send_message(message.chat.id, 'перейти на ютуб и тикток:', reply_markup=markup)
+
 
 @bot.message_handler(commands=['quote'])
 def quote(message):
